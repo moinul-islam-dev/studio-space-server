@@ -24,14 +24,15 @@ export async function connectToMongoDB() {
 }
 
 const mongoClient = await connectToMongoDB();
-const studioSpace = await mongoClient.db("studio_space");
-const studiosCollections = await mongoClient.db("studios");
-const studioBookingCollections = await mongoClient.db("studio_bookings");
+const studioSpace =  mongoClient.db("studio_space");
+const studiosCollection =  studioSpace.collection("studios");
+const studioBookingCollection =  studioSpace.collection("studio_bookings");
 
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello, Dear Users!');
 });
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
