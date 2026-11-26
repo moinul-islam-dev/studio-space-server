@@ -10,16 +10,24 @@ export const studioBookingCollection = await studioSpaceDB.collection("studio_bo
 
 
 export async function connectToMongoDB() {
+  
   try {
+
     await mongoClient.connect();
     
     console.log("You successfully connected to MongoDB!");
     
     return mongoClient;
-  } catch (err) {
+  
+  } 
+  
+  catch (err) {
+    
     console.error("Failed to connect to MongoDB:", err);
     process.exit(1);
+  
   }
+  
 }
 
 

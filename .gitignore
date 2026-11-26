@@ -3,6 +3,7 @@
 
 ### Node ###
 # Logs
+opencode.json
 logs
 *.log
 npm-debug.log*
