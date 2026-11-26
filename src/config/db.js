@@ -1,19 +1,25 @@
-import 'dotenv/config'
+// import 'dotenv/config'
 import { MongoClient } from 'mongodb';
 
-const client = new MongoClient(process.env.MONGO_URI);
+const mongoClient = new MongoClient(process.env.MONGO_URI);
+
 const studioSpaceDB = await mongoClient.db("studio_space");
-const studiosCollection = await studioSpaceDB.collection("studios");
-const studioBookingCollection = await studioSpaceDB.collection("studio_bookings");
+
+export const studiosCollection = await studioSpaceDB.collection("studios");
+export const studioBookingCollection = await studioSpaceDB.collection("studio_bookings");
 
 
 export async function connectToMongoDB() {
   try {
-    await client.connect();
+    await mongoClient.connect();
+    
     console.log("You successfully connected to MongoDB!");
-    return client;
+    
+    return mongoClient;
   } catch (err) {
     console.error("Failed to connect to MongoDB:", err);
     process.exit(1);
   }
 }
+
+
