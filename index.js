@@ -5,7 +5,7 @@
 
 // // multer and cloudinary
 // import multer from "multer";
-// import cloudinary from "./config/cloudinary.js";
+// import cloudinary from "./src/config/cloudinary.js";
 
 
 
