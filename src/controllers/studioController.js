@@ -83,3 +83,33 @@ export async function addStudio(req, res) {
     studio,
   });
 }
+
+export async function getStudios(_req, res) {
+  try {
+    const studios = await studiosCollection.find({}, {
+      projection: {
+        _id: 1,
+        title: 1,
+        category: 1,
+        hourlyRate: 1,
+        securityDeposit: 1,
+        capacity: 1,
+        location: 1,
+        address: 1,
+        overview: 1,
+        amenities: 1,
+        "availableTimeRanges.startTime": 1,
+        "availableTimeRanges.endTime": 1,
+        imageUrl: 1,
+      },
+    }).toArray();
+
+    return res.status(200).json({ success: true, studios });
+  } catch (error) {
+    console.error("Get studios error:", error);
+    return res.status(500).json({
+      success: false,
+      message: "Failed to fetch studios.",
+    });
+  }
+}

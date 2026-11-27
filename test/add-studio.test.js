@@ -33,6 +33,7 @@ test("POST /add-studio", async (t) => {
   const issuer = "http://localhost:3000";
   Object.assign(process.env, {
     BETTER_AUTH_URL: issuer,
+    FRONTEND_BASE_URI: issuer,
     MONGO_URI: "mongodb://127.0.0.1:27017",
     CLOUDINARY_CLOUD_NAME: "test",
     CLOUDINARY_API_KEY: "test",

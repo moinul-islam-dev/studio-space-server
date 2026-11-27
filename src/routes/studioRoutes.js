@@ -1,5 +1,5 @@
 import express from "express";
-import { addStudio } from "../controllers/studioController.js";
+import { addStudio, getStudios } from "../controllers/studioController.js";
 import upload from "../middlewares/upload.js";
 import verifyToken from "../middlewares/verifyToken.js";
 
@@ -20,6 +20,7 @@ function parseStudioImage(req, res, next) {
   });
 }
 
+router.get("/studios", getStudios);
 router.post("/add-studio", verifyToken, parseStudioImage, addStudio);
 
 export default router;
